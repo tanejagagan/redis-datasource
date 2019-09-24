@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.apache.spark.sql.redis</groupId>
-    <artifactId>spark-ngredis</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>datasource</artifactId>
+    <version>0.1-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
