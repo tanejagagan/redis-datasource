@@ -17,27 +17,6 @@ object TestUtils {
   def generateRandomKey(): String = {
     UUID.randomUUID().toString.replace("-", "")
   }
-
-  /**
-   * A wrapper of Assertions.intercept() that suppresses spark errors in the logs.
-   * It makes easier to analyse unit tests output.
-   */
-  def interceptSparkErr[T <: AnyRef](f: => Any)(implicit manifest: Manifest[T]): T = {
-    // turn off spark logger
-    val logger = org.apache.log4j.Logger.getLogger("org")
-    val levelBefore = logger.getLevel
-    logger.setLevel(org.apache.log4j.Level.OFF)
-
-    // delegate interception
-    val interceptRes = Assertions.intercept(f)
-
-    // revert logger
-    logger.setLevel(levelBefore)
-
-    interceptRes
-  }
-
-
 }
 
 /**

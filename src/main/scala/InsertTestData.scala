@@ -1,5 +1,7 @@
 import redis.clients.jedis.StreamEntryID
 
+import collection.JavaConverters._
+
 object InsertTestData {
 
   implicit val redisConfig : RedisConfig = new RedisConfig( RedisEndpoint(auth = "passwd"))
