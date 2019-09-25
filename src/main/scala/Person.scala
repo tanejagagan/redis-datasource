@@ -1,11 +1,8 @@
-package com.redislabs.provider.redis.util
-
 import java.util.UUID
 
-import com.redislabs.provider.redis.util.TestUtils._
+import TestUtils._
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{DataFrame, SparkSession}
-import org.scalatest.Assertions
 
 import scala.reflect.Manifest
 

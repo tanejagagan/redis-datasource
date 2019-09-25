@@ -1,6 +1,5 @@
 import java.util.Collections
 
-import com.redislabs.provider.redis.util.Person
 import org.scalatest.{BeforeAndAfterAll, FunSuite}
 import redis.clients.jedis.StreamEntryID
 
@@ -31,11 +30,11 @@ class RedisStreamReaderSpec extends FunSuite with BeforeAndAfterAll {
 
      */
 
-    val t3 = time {
+    val t3 = BenchmarkUtil.time (1 ,{
       val data = RedisStreamReader.getDataNG(redisConfig, testStream, new StreamEntryID(0, 0),
         latestEntry.get, 1000000)
       data.count(x => true)
-    }
+    })
     println(s"count $t3")
   }
 
@@ -47,11 +46,5 @@ class RedisStreamReaderSpec extends FunSuite with BeforeAndAfterAll {
     }
   }
 
-  def time[T](op : => T) : T = {
-    val start = System.nanoTime()
-    val res = op
-    val end = System.nanoTime()
-    println(s"time taken ${end - start} nsec = ${(end - start)/1000000} mlsec")
-    res
-  }
+
 }
