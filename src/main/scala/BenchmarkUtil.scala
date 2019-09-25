@@ -18,7 +18,7 @@ object BenchmarkUtil {
       i +=1
       println(s"Finished iteration: $i time take ${t/1000000} ms")
     }
-    println(s"Result: $res ===> Average time taken ${totalTime/iteration} nsec = ${totalTime/(iteration * 1000000)} mlsec")
+    println(s"===> Average time taken ${totalTime/iteration} nsec = ${totalTime/(iteration * 1000000)} mlsec")
     (res, totalTime/iteration)
   }
 }

@@ -8,8 +8,8 @@ object ReadTestData {
     val batchSize = args(1).toInt
     val iteration = args(2).toInt
     implicit val redisConfig : RedisConfig = new RedisConfig( RedisEndpoint(auth = "passwd"))
-    readData(redisConfig, streamKey, batchSize, iteration)
     readNoIterate(redisConfig, streamKey, batchSize, iteration)
+    readData(redisConfig, streamKey, batchSize, iteration)
     System.exit(0)
   }
 
@@ -19,6 +19,8 @@ object ReadTestData {
         new StreamEntryID(Long.MaxValue, Long.MaxValue), batchSize)
       data.count(x => true)
     })
+    println("Count is :" + t3._1)
+
   }
 
   def readNoIterate(redisConfig: RedisConfig, streamKey : String, batchSize : Int, iteration : Int): Unit = {
